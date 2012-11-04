@@ -59,7 +59,6 @@
     <Compile Include="frmEditIp.Designer.cs">
       <DependentUpon>frmEditIp.cs</DependentUpon>
     </Compile>
-    <Compile Include="IP.cs" />
     <Compile Include="IPAddressExtensions.cs" />
     <Compile Include="IpListItem.cs" />
     <Compile Include="MacAddrConvertable.cs" />
