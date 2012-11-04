@@ -78,6 +78,7 @@
             this.ipAddress.AutoHeight = true;
             this.ipAddress.BackColor = System.Drawing.SystemColors.Window;
             this.ipAddress.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.ipAddress.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.ipAddress.Location = new System.Drawing.Point(84, 48);
             this.ipAddress.MinimumSize = new System.Drawing.Size(87, 20);
             this.ipAddress.Name = "ipAddress";
@@ -117,7 +118,12 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.txtUsername);
             this.Controls.Add(this.label1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "frmEditIp";
+            this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "IP Adresa";
             this.Load += new System.EventHandler(this.frmEditIp_Load);
             this.ResumeLayout(false);

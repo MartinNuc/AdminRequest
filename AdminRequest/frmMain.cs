@@ -193,7 +193,7 @@ namespace AdminRequest
                     }
                     /***************************************************************************/
                     // a) ranges wifi
-                    string RangesWifiFilename = txtNode.Text + "-" + date.ToString("yyyyMMdd") + "-RangesWifi.csv";
+                    string RangesWifiFilename = txtNode.Text.Replace("-", "") +"-" + date.ToString("yyyyMMdd") + "-RangesWifi.csv";
                     StreamWriter file = new StreamWriter(Path.Combine(OutputPath, RangesWifiFilename));
 
                     IPAddress Mask = SubnetMask.CreateByHostNumber(StationsCount);
@@ -205,7 +205,7 @@ namespace AdminRequest
 
                     /***************************************************************************/
                     // c) wifi client
-                    string IPsFilename = txtNode.Text + "-" + date.ToString("yyyyMMdd") + "-IPs.csv";
+                    string IPsFilename = txtNode.Text.Replace("-", "") + "-" + date.ToString("yyyyMMdd") + "-IPs.csv";
                     file = new StreamWriter(Path.Combine(OutputPath, IPsFilename));
                     writeClientIps(file);
                     file.Close();
@@ -222,7 +222,7 @@ namespace AdminRequest
                     // ptp router
                     /***************************************************************************/
                     // a) NODE-datum-RangesWifi.csv
-                    string RangesWifiFilename = txtNode.Text + "-" + date.ToString("yyyyMMdd") + "-RangesWifi.csv";
+                    string RangesWifiFilename = txtNode.Text.Replace("-", "") + "-" + date.ToString("yyyyMMdd") + "-RangesWifi.csv";
                     StreamWriter file = new StreamWriter(Path.Combine(OutputPath, RangesWifiFilename));
                     IPAddress Mask = SubnetMask.CreateByHostNumber(StationsCount);
                     file.WriteLine(txtUsername.Text + ";"
@@ -233,7 +233,7 @@ namespace AdminRequest
 
                     /***************************************************************************/
                     // b) ptp range
-                    string RangesPtPFilename = txtNode.Text + "-" + date.ToString("yyyyMMdd") + "-RangesPtP.csv";
+                    string RangesPtPFilename = txtNode.Text.Replace("-", "") + "-" + date.ToString("yyyyMMdd") + "-RangesPtP.csv";
                     file = new StreamWriter(Path.Combine(OutputPath, RangesPtPFilename));
 
                     IPAddress PTPMask = SubnetMask.CreateByHostNumber(2);
@@ -249,7 +249,7 @@ namespace AdminRequest
                     file.Close();
                     /***************************************************************************/
                     // c) IPs
-                    string IPsFilename = txtNode.Text + "-" + date.ToString("yyyyMMdd") + "-IPs.csv";
+                    string IPsFilename = txtNode.Text.Replace("-", "") + "-" + date.ToString("yyyyMMdd") + "-IPs.csv";
                     file = new StreamWriter(Path.Combine(OutputPath, IPsFilename));
                     writeClientIps(file);
                     file.Close();
@@ -259,7 +259,7 @@ namespace AdminRequest
                 {
                     /***************************************************************************/
                     // c) IPs
-                    string IPsFilename = txtNode.Text + "-" + date.ToString("yyyyMMdd") + "-IPs.csv";
+                    string IPsFilename = txtNode.Text.Replace("-", "") + "-" + date.ToString("yyyyMMdd") + "-IPs.csv";
                     StreamWriter file = new StreamWriter(Path.Combine(OutputPath, IPsFilename));
                     foreach (IpListItem li in listIpAddresses.Items)
                         file.WriteLine(li.Username + ";" + li.Ip + ";" + new MacAddrConvertable(li.Mac) + ";" + txtSwitchName.Text);
@@ -276,7 +276,7 @@ namespace AdminRequest
                     // transparent router
                     /***************************************************************************/
                     // a) ranges wifi
-                    string RangesWifiFilename = txtNode.Text + "-" + date.ToString("yyyyMMdd") + "-RangesWifi.csv";
+                    string RangesWifiFilename = txtNode.Text.Replace("-", "") + "-" + date.ToString("yyyyMMdd") + "-RangesWifi.csv";
                     StreamWriter file = new StreamWriter(Path.Combine(OutputPath, RangesWifiFilename));
                     IPAddress Mask = SubnetMask.CreateByHostNumber(StationsCount);
                     file.WriteLine(txtUsername.Text + ";"
@@ -287,7 +287,7 @@ namespace AdminRequest
 
                     /***************************************************************************/
                     // c) wifi client
-                    string IPsFilename = txtNode.Text + "-" + date.ToString("yyyyMMdd") + "-IPs.csv";
+                    string IPsFilename = txtNode.Text.Replace("-", "") + "-" + date.ToString("yyyyMMdd") + "-IPs.csv";
                     file = new StreamWriter(Path.Combine(OutputPath, IPsFilename));
                     writeClientIps(file);
                     file.Close();
@@ -300,6 +300,14 @@ namespace AdminRequest
         {
             foreach (IpListItem li in listIpAddresses.Items)
                 Stream.WriteLine(li.Username + ";" + li.Ip + ";" + new MacAddrConvertable(li.Mac));
+        }
+
+        private void listIpAddresses_DoubleClick(object sender, EventArgs e)
+        {
+            if (listIpAddresses.SelectedItems.Count == 0)
+                return;
+
+            btnEditIp.PerformClick();
         }
     }
 }

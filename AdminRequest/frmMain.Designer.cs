@@ -81,6 +81,7 @@
             this.listIpAddresses.SelectionMode = System.Windows.Forms.SelectionMode.MultiExtended;
             this.listIpAddresses.Size = new System.Drawing.Size(252, 264);
             this.listIpAddresses.TabIndex = 14;
+            this.listIpAddresses.DoubleClick += new System.EventHandler(this.listIpAddresses_DoubleClick);
             // 
             // label2
             // 
@@ -198,7 +199,7 @@
             this.groupBox1.Location = new System.Drawing.Point(36, 95);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(345, 295);
-            this.groupBox1.TabIndex = 14;
+            this.groupBox1.TabIndex = 3;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Pripojeni";
             // 
@@ -413,6 +414,8 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.listIpAddresses);
             this.Controls.Add(this.label1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
             this.Name = "frmMain";
             this.Text = "Admin Request";
             this.groupBox1.ResumeLayout(false);
