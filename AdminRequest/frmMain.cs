@@ -31,7 +31,7 @@ namespace AdminRequest
                 if (int.TryParse(txtStationCount.Text, out StationsCount) == false)
                     MessageBox.Show("Unable to parse station count.");
             }
-            catch (Expcetion ex)
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
                 return;
