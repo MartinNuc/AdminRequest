@@ -185,16 +185,17 @@ namespace AdminRequest
 
                 if (radioClient.Checked)
                 {
-                    /***************************************************************************/
-                    // a) ranges wifi
-                    string RangesWifiFilename = txtNode.Text + "-" + date.ToString("yyyyMMdd") + "-RangesWifi.csv";
-                    StreamWriter file = new StreamWriter(Path.Combine(OutputPath, RangesWifiFilename));
                     int StationsCount;
                     if (int.TryParse(txtStationCount.Text, out StationsCount) == false)
                     {
                         MessageBox.Show("Unable to parse station count.");
                         return;
                     }
+                    /***************************************************************************/
+                    // a) ranges wifi
+                    string RangesWifiFilename = txtNode.Text + "-" + date.ToString("yyyyMMdd") + "-RangesWifi.csv";
+                    StreamWriter file = new StreamWriter(Path.Combine(OutputPath, RangesWifiFilename));
+
                     IPAddress Mask = SubnetMask.CreateByHostNumber(StationsCount);
                     file.WriteLine(txtUsername.Text + ";"
                         + IPAddressExtensions.GetNetworkAddress(ipFirst.IPAddress, Mask) + "/" + SubnetMask.GetMaskBits(StationsCount) + ";"
@@ -211,17 +212,18 @@ namespace AdminRequest
                 }
                 else if (radioPTP.Checked)
                 {
-                    // ptp router
-                    /***************************************************************************/
-                    // a) NODE-datum-RangesWifi.csv
-                    string RangesWifiFilename = txtNode.Text + "-" + date.ToString("yyyyMMdd") + "-RangesWifi.csv";
-                    StreamWriter file = new StreamWriter(Path.Combine(OutputPath, RangesWifiFilename));
                     int StationsCount;
                     if (int.TryParse(txtStationCount.Text, out StationsCount) == false)
                     {
                         MessageBox.Show("Unable to parse station count.");
                         return;
                     }
+
+                    // ptp router
+                    /***************************************************************************/
+                    // a) NODE-datum-RangesWifi.csv
+                    string RangesWifiFilename = txtNode.Text + "-" + date.ToString("yyyyMMdd") + "-RangesWifi.csv";
+                    StreamWriter file = new StreamWriter(Path.Combine(OutputPath, RangesWifiFilename));
                     IPAddress Mask = SubnetMask.CreateByHostNumber(StationsCount);
                     file.WriteLine(txtUsername.Text + ";"
                         + IPAddressExtensions.GetNetworkAddress(ipFirst.IPAddress, Mask) + "/" + SubnetMask.GetMaskBits(StationsCount) + ";"
@@ -238,11 +240,6 @@ namespace AdminRequest
                     IPAddress NetworkAddress = IPAddressExtensions.GetNetworkAddress(ipPTP.IPAddress, PTPMask);
                     // user ip range
                     IPAddress SpecificIp = new IPAddress(ipFirst.GetAddressBytes());
-                    if (int.TryParse(txtStationCount.Text, out StationsCount) == false)
-                    {
-                        MessageBox.Show("Unable to parse station count.");
-                        return;
-                    }
                     int NetworkMaskBits = SubnetMask.GetMaskBits(StationsCount);
 
                     IPAddress UsersNetwork = IPAddressExtensions.GetNetworkAddress(SpecificIp, Mask);
@@ -270,17 +267,17 @@ namespace AdminRequest
                 }
                 else if (radioTransparentRouter.Checked)
                 {
-                    // transparent router
-                    /***************************************************************************/
-                    // a) ranges wifi
-                    string RangesWifiFilename = txtNode.Text + "-" + date.ToString("yyyyMMdd") + "-RangesWifi.csv";
-                    StreamWriter file = new StreamWriter(Path.Combine(OutputPath, RangesWifiFilename));
                     int StationsCount;
                     if (int.TryParse(txtStationCount.Text, out StationsCount) == false)
                     {
                         MessageBox.Show("Unable to parse station count.");
                         return;
                     }
+                    // transparent router
+                    /***************************************************************************/
+                    // a) ranges wifi
+                    string RangesWifiFilename = txtNode.Text + "-" + date.ToString("yyyyMMdd") + "-RangesWifi.csv";
+                    StreamWriter file = new StreamWriter(Path.Combine(OutputPath, RangesWifiFilename));
                     IPAddress Mask = SubnetMask.CreateByHostNumber(StationsCount);
                     file.WriteLine(txtUsername.Text + ";"
                         + IPAddressExtensions.GetNetworkAddress(ipFirst.IPAddress, Mask) + "/" + SubnetMask.GetMaskBits(StationsCount) + ";"

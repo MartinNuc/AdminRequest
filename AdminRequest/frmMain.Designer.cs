@@ -42,6 +42,9 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label10 = new System.Windows.Forms.Label();
+            this.txtSwitchName = new System.Windows.Forms.TextBox();
+            this.label11 = new System.Windows.Forms.Label();
             this.ipPTP = new IPAddressControlLib.IPAddressControl();
             this.macRouter = new ISEAGE.May610.Diagrammer.matb();
             this.label6 = new System.Windows.Forms.Label();
@@ -56,11 +59,8 @@
             this.radioTransparentRouter = new System.Windows.Forms.RadioButton();
             this.btnAddIp = new System.Windows.Forms.Button();
             this.ipFirst = new IPAddressControlLib.IPAddressControl();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnGenerateFiles = new System.Windows.Forms.Button();
             this.folderBrowserDialog1 = new System.Windows.Forms.FolderBrowserDialog();
-            this.label10 = new System.Windows.Forms.Label();
-            this.txtSwitchName = new System.Windows.Forms.TextBox();
-            this.label11 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -202,12 +202,39 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Pripojeni";
             // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(64, 203);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(80, 13);
+            this.label10.TabIndex = 29;
+            this.label10.Text = "Nazev switche:";
+            // 
+            // txtSwitchName
+            // 
+            this.txtSwitchName.Enabled = false;
+            this.txtSwitchName.Location = new System.Drawing.Point(150, 200);
+            this.txtSwitchName.Name = "txtSwitchName";
+            this.txtSwitchName.Size = new System.Drawing.Size(168, 20);
+            this.txtSwitchName.TabIndex = 27;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(150, 200);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(58, 13);
+            this.label11.TabIndex = 28;
+            this.label11.Text = "Username:";
+            // 
             // ipPTP
             // 
             this.ipPTP.AllowInternalTab = false;
             this.ipPTP.AutoHeight = true;
             this.ipPTP.BackColor = System.Drawing.SystemColors.Window;
             this.ipPTP.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.ipPTP.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.ipPTP.Enabled = false;
             this.ipPTP.Location = new System.Drawing.Point(150, 148);
             this.ipPTP.MinimumSize = new System.Drawing.Size(87, 20);
@@ -345,6 +372,7 @@
             this.ipFirst.AutoHeight = true;
             this.ipFirst.BackColor = System.Drawing.SystemColors.Window;
             this.ipFirst.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.ipFirst.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.ipFirst.Location = new System.Drawing.Point(416, 27);
             this.ipFirst.MinimumSize = new System.Drawing.Size(87, 20);
             this.ipFirst.Name = "ipFirst";
@@ -353,48 +381,22 @@
             this.ipFirst.TabIndex = 11;
             this.ipFirst.Text = "10.26..";
             // 
-            // button1
+            // btnGenerateFiles
             // 
-            this.button1.Location = new System.Drawing.Point(585, 391);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(175, 38);
-            this.button1.TabIndex = 18;
-            this.button1.Text = "Vygenerovat soubory";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(64, 203);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(80, 13);
-            this.label10.TabIndex = 29;
-            this.label10.Text = "Nazev switche:";
-            // 
-            // txtSwitchName
-            // 
-            this.txtSwitchName.Enabled = false;
-            this.txtSwitchName.Location = new System.Drawing.Point(150, 200);
-            this.txtSwitchName.Name = "txtSwitchName";
-            this.txtSwitchName.Size = new System.Drawing.Size(168, 20);
-            this.txtSwitchName.TabIndex = 27;
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(150, 200);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(58, 13);
-            this.label11.TabIndex = 28;
-            this.label11.Text = "Username:";
+            this.btnGenerateFiles.Location = new System.Drawing.Point(585, 391);
+            this.btnGenerateFiles.Name = "btnGenerateFiles";
+            this.btnGenerateFiles.Size = new System.Drawing.Size(175, 38);
+            this.btnGenerateFiles.TabIndex = 18;
+            this.btnGenerateFiles.Text = "Vygenerovat soubory";
+            this.btnGenerateFiles.UseVisualStyleBackColor = true;
+            this.btnGenerateFiles.Click += new System.EventHandler(this.button1_Click);
             // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(772, 441);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btnGenerateFiles);
             this.Controls.Add(this.ipFirst);
             this.Controls.Add(this.btnAddIp);
             this.Controls.Add(this.groupBox1);
@@ -450,7 +452,7 @@
         private System.Windows.Forms.Label label7;
         private ISEAGE.May610.Diagrammer.matb macClient;
         private IPAddressControlLib.IPAddressControl ipFirst;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnGenerateFiles;
         private System.Windows.Forms.FolderBrowserDialog folderBrowserDialog1;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.TextBox txtSwitchName;
