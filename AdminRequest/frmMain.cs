@@ -181,6 +181,17 @@ namespace AdminRequest
             if (result == DialogResult.OK) // Test result.
             {
                 OutputPath = folderBrowserDialog1.SelectedPath;
+                try
+                {
+                    // Attempt to get a list of security permissions from the folder. 
+                    // This will raise an exception if the path is read only or do not have access to view the permissions. 
+                    System.Security.AccessControl.DirectorySecurity ds = Directory.GetAccessControl(OutputPath);
+                }
+                catch (UnauthorizedAccessException)
+                {
+                    MessageBox.Show("Output folder is not writable. Check your permissions for this folder.");
+                    return;
+                }
                 DateTime date = DateTime.Now;
 
                 if (radioClient.Checked)
